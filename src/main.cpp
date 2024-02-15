@@ -11,6 +11,14 @@
 // Include nlohmann/json library
 #include <nlohmann/json.hpp>
 
+// import custom header files
+#include "../include/detector.hpp"
+#include "../include/eyesDetetctor.hpp"
+#include "../include/faceDetecctor.hpp"
+#include "../include/smileDetector.hpp"
+#include "../include/videoHandler.hpp"
+#include "../include/emotionDetector.hpp"
+
 using json = nlohmann::json;
 using std::string;
 using std::vector;
