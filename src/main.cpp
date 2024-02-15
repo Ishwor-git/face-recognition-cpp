@@ -405,9 +405,9 @@ VideoHandler *VideoHandler::instance = nullptr;
 // Main Function Declaration
 int main()
 {
-    const std::string faceCascadePath = "C:/Users/Bibek Joshi/Desktop/TEST/data/haarcascades/lbpcascade_frontalface_improved.xml";
-    const std::string eyesCascadePath = "C:/Users/Bibek Joshi/Desktop/TEST/data/haarcascades/haarcascade_eye.xml";
-    const std::string smileCascadePath = "C:/Users/Bibek Joshi/Desktop/TEST/data/haarcascades/haarcascade_smile.xml";
+    const std::string faceCascadePath = "D:/Coding/Projects/cpp/face-recognition-cpp/data/haarcascades/lbpcascade_frontalface_improved.xml";
+    const std::string eyesCascadePath = "D:/Coding/Projects/cpp/face-recognition-cpp/data/haarcascades/haarcascade_eye.xml";
+    const std::string smileCascadePath = "D:/Coding/Projects/cpp/face-recognition-cpp/data/haarcascades/haarcascade_smile.xml";
 
     // VideoHandle Instance Creation
     VideoHandler videoHandler("Camera", faceCascadePath, eyesCascadePath, smileCascadePath);
@@ -419,3 +419,5 @@ int main()
     videoHandler.captureLoop();
     return 0;
 }
+// D:/Coding/Projects/cpp/face-recognition-cpp
+// header files moved to include folder

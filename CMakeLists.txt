@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 # Set the toolchain file before calling project()
 # Set the vcpkg toolchain file if it's not already set
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-set(CMAKE_TOOLCHAIN_FILE "C:/Users/Bibek Joshi/Desktop/vcpkg/scripts/buildsystems/vcpkg.cmake"
+set(CMAKE_TOOLCHAIN_FILE "C:/Program Files/vcpkg/scripts/buildsystems/vcpkg.cmake"
 CACHE STRING "Vcpkg toolchain file")
 endif()
 
@@ -14,11 +14,11 @@ set(OPENCV_DIR C:/opencv/build)
 find_package(OpenCV REQUIRED)
 
 # Find nlohmann_json
-set(nlohmann_json_DIR "C:/Users/Bibek Joshi/Desktop/vcpkg/installed/x64-windows/share/nlohmann_json")
+set(nlohmann_json_DIR "C:/Program Files/vcpkg/installed/x64-windows/share/nlohmann_json")
 find_package(nlohmann_json CONFIG REQUIRED)
 
 # Find CURL
-set(CURL_INCLUDE_DIR "C:/Users/Bibek Joshi/Desktop/vcpkg/installed/x64-windows/share/curl")
+set(CURL_INCLUDE_DIR "C:/Program Files/vcpkg/installed/x64-windows/share/curl")
 find_package(CURL REQUIRED)
 
 # Add ImGui and its backends
@@ -46,3 +46,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   CURL::libcurl
   nlohmann_json::nlohmann_json
 )
+
+#path to custom hheader files
+include_directories(${CMAKE_SOURCE_DIR}/include)
