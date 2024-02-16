@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
+# Ensure that C++17 or later is used
+set(CMAKE_CXX_STANDARD 17)  
+
 # Set the toolchain file before calling project()
 # Set the vcpkg toolchain file if it's not already set
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
@@ -48,4 +51,4 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 #path to custom hheader files
-include_directories(${CMAKE_SOURCE_DIR}/include)
+# include_directories(${CMAKE_SOURCE_DIR}/include)

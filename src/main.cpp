@@ -10,14 +10,15 @@
 #include <string>
 // Include nlohmann/json library
 #include <nlohmann/json.hpp>
+#include <filesystem>
 
 // import custom header files
-#include "../include/detector.hpp"
-#include "../include/eyesDetetctor.hpp"
-#include "../include/faceDetecctor.hpp"
-#include "../include/smileDetector.hpp"
-#include "../include/videoHandler.hpp"
-#include "../include/emotionDetector.hpp"
+// #include "../include/detector.hpp"
+// #include "../include/eyesDetetctor.hpp"
+// #include "../include/faceDetecctor.hpp"
+// #include "../include/smileDetector.hpp"
+// #include "../include/videoHandler.hpp"
+// #include "../include/emotionDetector.hpp"
 
 using json = nlohmann::json;
 using std::string;
@@ -409,14 +410,18 @@ public:
 
 // static member initialization
 VideoHandler *VideoHandler::instance = nullptr;
+namespace fs = std::filesystem;
 
 // Main Function Declaration
 int main()
 {
-    const std::string faceCascadePath = "D:/Coding/Projects/cpp/face-recognition-cpp/data/haarcascades/lbpcascade_frontalface_improved.xml";
-    const std::string eyesCascadePath = "D:/Coding/Projects/cpp/face-recognition-cpp/data/haarcascades/haarcascade_eye.xml";
-    const std::string smileCascadePath = "D:/Coding/Projects/cpp/face-recognition-cpp/data/haarcascades/haarcascade_smile.xml";
+    std::string root = fs::current_path().parent_path().parent_path().generic_string();
+    // std::cout << "Current Path: " << root << std::endl;
 
+    // std::string root = "D:/Coding/Projects/cpp/face-recognition-cpp";
+    const std::string faceCascadePath = root + "/data/haarcascades/lbpcascade_frontalface_improved.xml";
+    const std::string eyesCascadePath = root + "/data/haarcascades/haarcascade_eye.xml";
+    const std::string smileCascadePath = root + "/data/haarcascades/haarcascade_smile.xml";
     // VideoHandle Instance Creation
     VideoHandler videoHandler("Camera", faceCascadePath, eyesCascadePath, smileCascadePath);
     if (!videoHandler.initializeCamera(0))
